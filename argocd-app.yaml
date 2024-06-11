@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://your-repo-url'
-    path: 'path-to-your-deployment-directory'
+    repoURL: 'https://github.com/Theodora2010/testing-k8s.git'
+    path: 'testing-k8s'
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
