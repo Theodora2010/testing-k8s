@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: pod-deletion-event-source
+spec:
+  calendar:
+    example-with-interval:
+      schedule: "* * * * *"
+  webhook:
+    example:
+      port: "12000"
+      endpoint: "/"
+  resource:
+    pod-deletion:
+      namespace: default
+      group: ""
+      version: v1
+      kind: Pod
+      eventTypes:
+      - delete
+      labelSelector:
+        matchLabels:
+          app: restart
+

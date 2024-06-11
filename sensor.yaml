@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: pod-deletion-sensor
+spec:
+  dependencies:
+  - name: pod-deletion
+    eventSourceName: pod-deletion-event-source
+    eventName: pod-deletion
+  triggers:
+  - template:
+      name: send-slack-message
+      http:
+        url: 'https://hooks.slack.com/services/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'
+        method: POST
+        headers:
+          - key: Content-Type
+            value: application/json
+        payload:
+          - src: '{"text": "Hello world"}'
+            dest: body
+

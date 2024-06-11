@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restart-pod-deployment
+  labels:
+    app: restart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: restart
+  template:
+    metadata:
+      labels:
+        app: restart
+    spec:
+      containers:
+      - name: restart-container
+        image: nginx:latest
+
