@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/Theodora2010/testing-k8s.git'
-    path: 'testing-k8s'
+    path: '.'
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
